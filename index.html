@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖繩 5 日精華之旅 (V7 - 地圖連結修正版)</title>
+    <style>
+        /* (CSS 樣式與 V6 保持一致) */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1627916560416-2a737f22557b?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1200&h=300&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 10px;
+            font-size: 2.8em;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .reminders-section {
+            padding: 30px 40px;
+        }
+        .reminder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .main-content-wrapper {
+            display: flex;
+            padding: 30px 40px;
+            gap: 30px;
+        }
+        .schedule-area {
+            flex: 3;
+        }
+        .sidebar {
+            flex: 1; 
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .day-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: color 0.3s, background-color 0.3s;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        .day-tab.active {
+            color: #0077c2;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-bottom: 1px solid #f9f9f9; 
+        }
+        .day-detail-card {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid #0077c2;
+            background-color: #fbfbfb;
+            border-radius: 4px;
+        }
+        .day-detail-card h4 {
+            color: #d6336c;
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .time-label {
+            font-weight: bold;
+            color: #0077c2;
+            flex-shrink: 0;
+            min-width: 100px;
+        }
+        .highlight {
+            color: #d6336c;
+            font-weight: 600;
+        }
+        /* 圖片佔位符樣式 */
+        .image-placeholder {
+            width: 100%;
+            height: 150px; 
+            background-color: #ccc;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            font-weight: bold;
+            border: 2px dashed #999;
+        }
+        .map-link-btn {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #ff9800;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .map-link-btn:hover {
+            background-color: #e68900;
+        }
+        @media (max-width: 900px) {
+            .main-content-wrapper { flex-direction: column; padding: 20px; }
+            .sidebar { min-width: auto; order: 3; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>⛱️ 沖繩 5 日精華之旅</h1>
+        <p>客製化購物、海景兜風與美食饗宴 (12/19 晚到 - 12/23 晚回)</p>
+    </div>
+
+    <div class="reminders-section">
+        <h3>🚨 5 日行程關鍵提醒</h3>
+        <div class="reminder-grid">
+            <div class="reminder-item" style="background-color: #ffe0b2; border-left: 5px solid #ff9800;">
+                <strong>🚗 租車與自駕提醒</strong>
+                <p>Day 2 早上 9 點開始租車，請注意還車時間，避免延誤班機！</p>
+            </div>
+            <div class="reminder-item" style="background-color: #e3f2fd; border-left: 5px solid #00b0ff;">
+                <strong>🍔 美食分散策略</strong>
+                <p>拉麵選擇留給 Day 1 晚上。Day 3/Day 4 的美食選擇較多，請預先確認營業時間。</p>
+            </div>
+            <div class="reminder-item" style="background-color: #f0f4c3; border-left: 5px solid #afb42b;">
+                <strong>🛍️ 購物/景點分配</strong>
+                <p>Day 2 主攻 PARCO CITY；Day 3 主攻 AEON 寶可夢中心；Day 5 集中在 Outlet 與魚市場。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content-wrapper">
+        <div class="schedule-area">
+            <div class="day-tabs">
+                <div class="day-tab active" data-day="day1" data-locations="Naha Airport/WBF ART STAY Naha/琉家拉麵那霸">Day 1: 抵達與夜食</div>
+                <div class="day-tab" data-day="day2" data-locations="WBF ART STAY Naha/SAN-A浦添西海岸PARCO CITY/美國村">Day 2: 購物與美式風</div>
+                <div class="day-tab" data-day="day3" data-locations="WBF ART STAY Naha/浜屋沖繩麵/萬座毛/殘波岬燈塔/道之驛 嘉手納/AEON Rycom">Day 3: 海岸兜風</div>
+                <div class="day-tab" data-day="day4" data-locations="WBF ART STAY Naha/古宇利島蝦蝦飯/美麗海水族館/THE GOLDEN STORE 法式薄餅/WBF ART STAY Naha">Day 4: 北部水族館</div>
+                <div class="day-tab" data-day="day5" data-locations="WBF ART STAY Naha/奧武島/系滿魚市場/瀨長島/沖繩ASHIBINAA Outlet/Naha Airport">Day 5: 結尾與歸途</div>
+            </div>
+
+            <div class="day-content-area">
+                <div class="day-detail-card" id="day1-content">
+                    <h4>📅 Day 1: 12/19 (五) 晚間 - 抵達與那霸拉麵夜食</h4>
+                    <ul>
+                        <li><span class="time-label">晚上:</span> 抵達那霸機場 (OKA)，領取租車。</li>
+                        <li><span class="time-label">晚上 9 點:</span> **WBF ART STAY那霸飯店** Check-in。</li>
+                        <li><span class="time-label">宵夜:</span> 享用那霸市區拉麵：<span class="highlight">琉家拉麵</span> 或 <span class="highlight">暖慕拉麵</span>。</li>
+                    </ul>
+                    <div class="image-placeholder">WBF 飯店與暖慕拉麵圖片佔位</div>
+                </div>
+                
+                <div class="day-detail-card" id="day2-content" style="display: none;">
+                    <h4>📅 Day 2: 12/20 (六) - 購物天堂與美式風情</h4>
+                    <ul>
+                        <li><span class="time-label">早上 9 點:</span> 租車手續辦理，前往中部。</li>
+                        <li><span class="time-label">上午:</span> **SAN-A浦添西海岸 PARCO CITY** (大型購物中心)。</li>
+                        <li><span class="time-label">午餐:</span> 在 PARCO CITY 美食街用餐，選擇多樣。</li>
+                        <li><span class="time-label">下午/傍晚:</span> **美國村 (American Village)**。逛街、拍照、體驗美式風情。</li>
+                        <li><span class="time-label">晚餐:</span> 於美國村周邊用餐。</li>
+                    </ul>
+                    <div class="image-placeholder">PARCO CITY 與 美國村摩天輪圖片佔位</div>
+                </div>
+
+                <div class="day-detail-card" id="day3-content" style="display: none;">
+                    <h4>📅 Day 3: 12/21 (日) - 海岸兜風與軍事文化</h4>
+                    <ul>
+                        <li><span class="time-label">早餐/午餐:</span> 驅車前往 **浜屋沖繩麵**（早上 10 點開）。</li>
+                        <li><span class="time-label">上午/中午:</span> 海岸線兜風，**萬座毛** (象鼻岩) 與 **殘波岬燈塔** 景點。</li>
+                        <li><span class="time-label">下午:</span> **道之驛 嘉手納** (看美軍基地飛機起降)。</li>
+                        <li><span class="time-label">晚餐/購物:</span> 前往**沖繩AEON寶可夢中心** (Rycom)。</li>
+                        <li><span class="time-label">晚餐備選:</span> **浜の家海鮮料理** (奶油黃魚) 或 **Emerald牛排**（需訂位）。</li>
+                    </ul>
+                    <div class="image-placeholder">殘波岬燈塔與嘉手納基地飛機圖片佔位</div>
+                </div>
+
+                <div class="day-detail-card" id="day4-content" style="display: none;">
+                    <h4>📅 Day 4: 12/22 (一) - 北部水族館精華</h4>
+                    <ul>
+                        <li><span class="time-label">早上:</span> 簡單吃早餐後，開車前往北部。</li>
+                        <li><span class="time-label">中午:</span> **古宇利島**，午餐享用超人氣 **蝦蝦飯**。</li>
+                        <li><span class="time-label">飲料:</span> **Shinmei Coffee** 購買黑糖系列飲料。</li>
+                        <li><span class="time-label">下午:</span> **美麗海水族館** (觀賞黑潮之海與海豚秀)。</li>
+                        <li><span class="time-label">晚餐:</span> 回程途中可吃法式薄餅 **THE GOLDEN STORE**。</li>
+                    </ul>
+                    <div class="image-placeholder">古宇利大橋與美麗海水族館圖片佔位</div>
+                </div>
+
+                <div class="day-detail-card" id="day5-content" style="display: none;">
+                    <h4>📅 Day 5: 12/23 (二) - 結尾採購與歸途</h4>
+                    <ul>
+                        <li><span class="time-label">上午:</span> 退房後開車前往南部，**奧武島** 享用 <span class="highlight">特色天婦羅</span>。</li>
+                        <li><span class="time-label">中午:</span> **系滿魚市場** (新鮮生魚片、海產)。</li>
+                        <li><span class="time-label">下午:</span> **瀨長島 Umikaji Terrace**，觀看飛機起降並享用 <span class="highlight">幸福鬆餅</span>。</li>
+                        <li><span class="time-label">傍晚:</span> **沖繩 ASHIBINAA Outlet** 進行最後採購。</li>
+                        <li><span class="time-label">晚上:</span> 機場還車，晚上 9:30 飛機起飛。</li>
+                    </ul>
+                    <div class="image-placeholder">瀨長島飛機起降與 ASHIBINAA Outlet 圖片佔位</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="map-card">
+                <h4>🗺️ 行程地圖 (路線規劃)</h4>
+                <div class="map-placeholder" style="background-image: url('https://via.placeholder.com/280x200?text=Okinawa+Route+Map');"></div>
+                <a id="current-day-map-link" href="#" target="_blank" class="map-link-btn">點擊查看 Day 1 導航路線 (Google Maps)</a>
+            </div>
+
+          <div class="food-card">
+    <h4>🍜 推薦美食連結 (可自行修改)</h4>
+    <div class="food-list">
+        
+        <div class="food-item">
+            <a href="[您的拉麵 Google Maps 連結]" target="_blank">琉家拉麵/暖慕拉麵</a>
+        </div>
+        
+        <div class="food-item">
+            <a href="[您的蝦蝦飯 Google Maps 連結]" target="_blank">蝦蝦飯</a>
+        </div>
+        
+        <div class="food-item">
+            <a href="https://share.google/GKCwPN1vEyErHTdFi" target="_blank">浜屋沖繩麵</a>
+        </div>
+        
+        <div class="food-item">
+            <a href="[您的幸福鬆餅 Google Maps 連結]" target="_blank">幸福鬆餅 (瀨長島)</a>
+        </div>
+        
+        </div>
+</div>
+
+</div>
+
+<script>
+    // ***** 關鍵修正: 替換為 Google Maps 官方導航 URL *****
+    const MAP_DIR_BASE_URL = 'https://www.google.com/maps/dir/'; 
+    const mapLinkElement = document.getElementById('current-day-map-link');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.day-tab');
+        const contents = document.querySelectorAll('.day-detail-card');
+        
+        contents.forEach(content => content.style.display = 'none');
+        document.getElementById('day1-content').style.display = 'block';
+        
+        // 首次加載時設置 Day 1 路線
+        updateMapLink(document.querySelector('.day-tab.active'));
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const day = tab.getAttribute('data-day');
+
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                contents.forEach(content => content.style.display = 'none');
+                document.getElementById(`${day}-content`).style.display = 'block';
+
+                updateMapLink(tab);
+            });
+        });
+    });
+
+    /**
+     * 根據當前行程日更新導航路線連結
+     * @param {HTMLElement} tabElement - 當前點擊的 Tab 元素
+     */
+    function updateMapLink(tabElement) {
+        const locationsString = tabElement.getAttribute('data-locations');
+        const dayLabel = tabElement.getAttribute('data-day');
+        
+        // 將地點字串以斜線 '/' 連接，並進行 URL 編碼
+        // 格式: https://www.google.com/maps/dir/[起點]/[中途點1]/[中途點2]/[終點]
+        const routePath = locationsString.split('/').map(location => encodeURIComponent(location.trim())).join('/');
+        
+        const fullUrl = MAP_DIR_BASE_URL + routePath;
+        
+        mapLinkElement.href = fullUrl;
+        mapLinkElement.textContent = `點擊查看 ${dayLabel.toUpperCase().replace('DAY', 'Day ')} 導航路線 (Google Maps)`;
+    }
+</script>
+
+</body>
+</html>
